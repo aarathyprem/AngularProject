@@ -15,7 +15,7 @@
         $scope.getItems = getItems;
         
         function getAllItems() {
-            $http.get('http://jsonplaceholder.typicode.com/photos')
+            $http.get('https://jsonplaceholder.typicode.com/photos')
                     .success(function (data) {
                         $scope.content = data;
                         angular.forEach($scope.content.slice(0, $scope.limit), function(value, key) {
