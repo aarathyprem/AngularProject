@@ -1,0 +1,34 @@
+<div ng-init="getAllItems()" class="gallery-wrapper">
+    <div class="pull-right mrg-20" ng-class="{ 'hide' : content==null || content.length==0}">
+        <button class="btn-link btn-prev" ng-disabled="current==1" ng-click="getItems(0)">&laquo;</button>
+        <span class="badge">{{current}}</span>
+        <button class="btn-link btn-nxt" ng-disabled="current==pageCount" ng-click="getItems(1)">&raquo;</button>
+    </div>
+    <div class="gallery" ng-repeat="p in photos track by $index">
+        <a href data-toggle="modal" data-target="#galleryModal" ng-click="changeIndex($index)">
+            <img ng-src="{{p.url}}" class="image-responsive" />
+        </a>
+        <p class="img-padding">{{p.title}}</p>
+    </div>
+    <div class="pull-right" ng-class="{ 'hide' : content==null || content.length==0}">
+        <button class="btn-link btn-prev" ng-disabled="current==1" ng-click="getItems(0)">&laquo;</button>
+        <span class="badge">{{current}}</span>
+        <button class="btn-link btn-nxt" ng-disabled="current==pageCount" ng-click="getItems(1)">&raquo;</button>
+    </div>
+</div>
+
+<!-- gallery modal start -->
+  <div class="modal fade" id="galleryModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+            <p>position: {{currentIndex+1}}</p>
+            <p>url : {{photos[currentIndex].url}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal">close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- gallery modal end -->

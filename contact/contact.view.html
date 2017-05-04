@@ -1,0 +1,21 @@
+<div class="contact-wrapper">
+    <div class="col-xs-12 col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
+        <h1>Contact Us</h1>
+        <form name="contactform" role="form">
+            <div class="form-group">
+                <input type="text" class="form-control" id="email" name="email" ng-model="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" placeholder="Please enter email" required>
+                <span class="input-error small" ng-show="contactform.email.$dirty && contactform.email.$error.required">required!</span>
+                <span class="input-error small" ng-show="contactform.email.$error.pattern">Please enter a valid email</span>
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" id="contact" name="contact" ng-model="contact" placeholder="Please enter contact number" ng-minlength="10" required>
+                <span class="input-error small" ng-show="contactform.contact.$dirty && contactform.contact.$error.required">required!</span>
+                <span class="input-error small" ng-show="contactform.contact.$error.minlength">Please enter 10 digits</span>
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" id="message" name="message" rows="3" ng-model="message" placeholder="Please enter message"></textarea>
+            </div>
+            <button type="submit" class="btn btn-success pull-right">Submit</button>
+        </form>
+    </div>
+</div>
